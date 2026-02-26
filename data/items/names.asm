@@ -19,7 +19,7 @@ ItemNames::
 	li "MAX POTION"
 	li "HYPER POTION"
 	li "SUPER POTION"
-	li "POTION"
+	li "GUINNESS"
 	li "BOULDERBADGE"
 	li "CASCADEBADGE"
 	li "THUNDERBADGE"

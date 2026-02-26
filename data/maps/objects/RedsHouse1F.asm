@@ -1,5 +1,6 @@
 	object_const_def
 	const_export REDSHOUSE1F_MOM
+	const_export REDSHOUSE1F_MRMIME
 
 RedsHouse1F_Object:
 	db $a ; border block
@@ -14,5 +15,6 @@ RedsHouse1F_Object:
 
 	def_object_events
 	object_event  5,  4, SPRITE_MOM, STAY, LEFT, TEXT_REDSHOUSE1F_MOM
+	object_event  4,  4, SPRITE_MONSTER, STAY, RIGHT, TEXT_REDSHOUSE1F_MRMIME
 
 	def_warps_to REDS_HOUSE_1F

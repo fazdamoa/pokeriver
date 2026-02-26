@@ -4,9 +4,21 @@ _RedsHouse1FMomWakeUpText::
 	cont "home some day."
 	cont "It said so on TV."
 
+	para "Your fath-"
+	line "ahem MR.MIME"
+	cont "and I will miss"
+	cont "you."
+
 	para "PROF.OAK, next"
 	line "door, is looking"
 	cont "for you."
+	done
+
+_RedsHouse1FMrMimeText::
+	text "MR.MIME: mimeee…"
+	line "MR.MIME is gazing"
+	cont "at MOM with"
+	cont "adoration."
 	done
 
 _RedsHouse1FMomYouShouldRestText::

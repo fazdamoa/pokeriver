@@ -23,17 +23,17 @@ _PalletTownGirlText::
 
 	para "When they get"
 	line "strong, they can"
-	cont "protect me!"
+	cont ""protect" me!"
 	done
 
 _PalletTownFisherText::
 	text "Technology is"
-	line "incredible!"
+	line "incredible! You"
 
-	para "You can now store"
-	line "and recall items"
-	cont "and #MON as"
-	cont "data via PC!"
+	para "can now have a"
+	line "goth AI girlfriend"
+	cont "tell you off for"
+	cont "eating pizza!"
 	done
 
 _PalletTownOaksLabSignText::
