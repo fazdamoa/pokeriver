@@ -6,13 +6,12 @@ A scratchpad for brainstorming changes, themes, and design goals.
 
 ## Design Philosophy
 
-_Define the guiding principles for this romhack. Some questions to consider:_
-
-- Should the difficulty be harder, easier, or about the same as vanilla?
-- Should all 151 Pokemon be obtainable in a single version?
-- Should gym type themes stay the same or change?
-- Should the story stay close to the original or diverge significantly?
-- Any quality-of-life improvements (e.g. reusable TMs, running shoes)?
+- **Tone**: Dark comedy / irreverent British humor. NPCs are weird, depressed, or morally questionable. Nothing is played straight.
+- **Oak**: Subliminal creep who fancies the player's mum. Asks about her constantly. Abusive boss to his lab staff.
+- **Rival**: Full 90s schoolyard bully. Trash talks, calls you gay, makes Mr. Mime / your mum jokes. No filter.
+- **NPCs**: Generally pathetic, unhinged, or oddly specific. Modern references (Zipcar, AI girlfriends, 0% beer) in a retro setting.
+- **Items**: Healing items renamed to stouts/beers (Guinness, Murphys, Beamish, Camden Stout, Est. Galicia).
+- **Starters**: Deliberately weird picks (Clefairy, Seel, Doduo) instead of the classic trio. Clefairy has innuendo.
 
 ---
 
@@ -43,17 +42,21 @@ _Notes on how wild encounters should differ from vanilla:_
 
 ## Trainer Team Ideas
 
-_Notes on trainer team changes:_
-
-- Should route trainers have more diverse teams?
-- Rival team composition across the game?
-- Elite Four themes?
+- Rival's starter mirrors player pick: Clefairy↔Seel↔Doduo. Evolves to Clefable/Dewgong/Dodrio from Silph Co. onwards.
+- Rival support Pokemon kept from vanilla (Pidgey line, Abra line, Growlithe, Exeggcute, Gyarados, Rhyhorn line).
+- Route trainers and gym leaders: TBD per phase.
 
 ---
 
 ## Story & Dialogue Ideas
 
-_Notes on narrative changes:_
+- Oak is a creep who keeps asking about your mum. Subliminal, not explicit.
+- Rival is a 90s bully — "that's so gay", "smell you later", Mr. Mime/mum jokes, calls you trash.
+- Lab staff worship Oak despite abuse (thrown flasks, screaming, no pay). Stockholm syndrome energy.
+- Route 1 kid drunk drove a Zipcar, now on non-alcoholic Guinness. Doesn't see the irony.
+- Ledge kid is existentially fixated on jumping off ledges. Dark undertones.
+- Fisher in Pallet Town has a goth AI girlfriend who judges his diet.
+- Girl in Pallet Town raises Pokemon for "protection" (air quotes).
 
 ---
 

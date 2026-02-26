@@ -21,10 +21,14 @@ Changes are made **town-by-town**, progressing through the game in roughly the o
 - [x] Project management docs
 
 ### Phase 1: Pallet Town & Route 1
-- [ ] Opening dialogue / Oak's speech
-- [ ] Starter Pokemon options
+- [x] Opening dialogue / Oak's speech
+- [x] Starter Pokemon changed to Clefairy, Seel, Doduo
 - [ ] Route 1 wild encounters
-- [ ] Rival battle team
+- [x] Rival battle team (all encounters updated through Champion)
+- [x] Item renames: potion line -> stout/beer theme (Guinness, Murphys, Beamish, Camden Stout, Est. Galicia)
+- [x] Oak's lab NPC dialogue (pathetic sycophants)
+- [x] Route 1 NPC dialogue (Guinness 0 kid, ledge kid)
+- [x] Pallet Town NPC dialogue (AI girlfriend fisher, "protect" girl)
 
 ### Phase 2: Viridian City & Route 2
 - [ ] Viridian City NPC dialogue
