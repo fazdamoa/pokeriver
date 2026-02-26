@@ -15,7 +15,7 @@ ItemNames::
 	li "ICE HEAL"
 	li "AWAKENING"
 	li "PARLYZ HEAL"
-	li "FULL RESTORE"
+	li "EST. GALICIA"
 	li "CAMDEN STOUT"
 	li "BEAMISH"
 	li "MURPHYS"
