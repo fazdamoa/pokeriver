@@ -35,26 +35,33 @@ _OaksLabThoseArePokeBallsText::
 	done
 
 _OaksLabYouWantCharmanderText::
-	text "So! You want the"
-	line "fairy #MON,"
-	cont "CLEFAIRY?"
+	text "So! You want"
+	line "VAPOREON?"
 
 	para "Interesting..."
-	line "She's quite the"
-	cont "handful at night."
-	cont "Heh heh."
+	line "In terms of"
+	cont "compatibility..."
+	cont "she's the most..."
+
+	para "Ahem. Good choice."
 	done
 
 _OaksLabYouWantSquirtleText::
 	text "So! You want the"
 	line "water #MON,"
 	cont "SEEL?"
+
+	para "Wow, nice choice"
+	line "mate. Solid pick."
 	done
 
 _OaksLabYouWantBulbasaurText::
 	text "So! You want the"
-	line "bird #MON,"
-	cont "DODUO?"
+	line "fire #MON,"
+	cont "PONYTA?"
+
+	para "Wow, nice choice"
+	line "mate. Solid pick."
 	done
 
 _OaksLabMonEnergeticText::

@@ -22,7 +22,7 @@ Changes are made **town-by-town**, progressing through the game in roughly the o
 
 ### Phase 1: Pallet Town & Route 1
 - [x] Opening dialogue / Oak's speech
-- [x] Starter Pokemon changed to Clefairy, Seel, Doduo
+- [x] Starter Pokemon: Vaporeon (gives Ditto), Seel, Ponyta
 - [ ] Route 1 wild encounters
 - [x] Rival battle team (all encounters updated through Champion)
 - [x] Item renames: potion line -> stout/beer theme (Guinness, Murphys, Beamish, Camden Stout, Est. Galicia)

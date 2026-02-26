@@ -11,7 +11,7 @@ A scratchpad for brainstorming changes, themes, and design goals.
 - **Rival**: Full 90s schoolyard bully. Trash talks, calls you gay, makes Mr. Mime / your mum jokes. No filter.
 - **NPCs**: Generally pathetic, unhinged, or oddly specific. Modern references (Zipcar, AI girlfriends, 0% beer) in a retro setting.
 - **Items**: Healing items renamed to stouts/beers (Guinness, Murphys, Beamish, Camden Stout, Est. Galicia).
-- **Starters**: Deliberately weird picks (Clefairy, Seel, Doduo) instead of the classic trio. Clefairy has innuendo.
+- **Starters**: Vaporeon (middle), Seel (right), Ponyta (left). Vaporeon has copypasta innuendo. Choosing Vaporeon actually gives you a Ditto (bait & switch). Seel/Ponyta get "nice choice mate".
 
 ---
 
@@ -42,7 +42,7 @@ _Notes on how wild encounters should differ from vanilla:_
 
 ## Trainer Team Ideas
 
-- Rival's starter mirrors player pick: Clefairy↔Seel↔Doduo. Evolves to Clefable/Dewgong/Dodrio from Silph Co. onwards.
+- Rival's starter mirrors player pick: Vaporeon↔Seel↔Ponyta. Evolves to Vaporeon(stays)/Dewgong/Rapidash from Silph Co. onwards.
 - Rival support Pokemon kept from vanilla (Pidgey line, Abra line, Growlithe, Exeggcute, Gyarados, Rhyhorn line).
 - Route trainers and gym leaders: TBD per phase.
 

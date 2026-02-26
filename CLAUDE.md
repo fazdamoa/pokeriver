@@ -14,13 +14,17 @@ See ROADMAP.md for progress, CHANGELOG.md for detailed changes, IDEAS.md for des
 Max display name = 12 chars (`ITEM_NAME_LENGTH - 1`, defined in `constants/text_constants.asm`).
 
 ## Current Starter Mapping
-| Ball Position | STARTER | Pokemon | Evolves To |
-|---|---|---|---|
-| Middle | STARTER1 | CLEFAIRY | CLEFABLE (Moon Stone) |
-| Right | STARTER2 | SEEL | DEWGONG (Lv 34) |
-| Left | STARTER3 | DODUO | DODRIO (Lv 31) |
+| Ball Position | STARTER | Displayed | Actually Given | Rival Gets |
+|---|---|---|---|---|
+| Middle | STARTER1 | VAPOREON | **DITTO** (bait & switch) | SEEL |
+| Right | STARTER2 | SEEL | SEEL | PONYTA |
+| Left | STARTER3 | PONYTA | PONYTA | VAPOREON |
 
-Assembly labels in `scripts/OaksLab.asm` still say Charmander/Squirtle/Bulbasaur — they're just labels, functionality uses STARTER1/2/3 from `constants/pokemon_constants.asm`.
+- Vaporeon pick: innuendo text (copypasta ref), player actually receives Ditto
+- Seel/Ponyta pick: "Wow, nice choice mate. Solid pick."
+- Ditto swap is in `scripts/OaksLab.asm` (before `AddPartyMon`). `wPlayerStarter` stays VAPOREON so rival logic works.
+- Rival evolution mapping: Seel→Dewgong (Lv 34), Ponyta→Rapidash (Lv 40), Vaporeon stays Vaporeon
+- Assembly labels in `scripts/OaksLab.asm` still say Charmander/Squirtle/Bulbasaur — they're just labels, functionality uses STARTER1/2/3 from `constants/pokemon_constants.asm`.
 
 ## Item Renames
 | Internal Constant | Display Name | Hex |

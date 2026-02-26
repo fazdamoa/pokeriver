@@ -19,17 +19,20 @@ Format: each entry lists the phase, date, and a summary of what changed.
 - Internal constants unchanged; only display names in `data/items/names.asm`
 
 **Starter Pokemon Changes**
-- STARTER1 = CLEFAIRY (middle ball, was Charmander)
-- STARTER2 = SEEL (right ball, was Squirtle)
-- STARTER3 = DODUO (left ball, was Bulbasaur)
+- STARTER1 = VAPOREON (middle ball) — but player actually receives DITTO (bait & switch)
+- STARTER2 = SEEL (right ball)
+- STARTER3 = PONYTA (left ball)
+- Vaporeon selection: innuendo text referencing compatibility copypasta
+- Seel/Ponyta selection: "Wow, nice choice mate. Solid pick."
+- Ditto swap implemented in `scripts/OaksLab.asm` before AddPartyMon; `wPlayerStarter` stays VAPOREON so rival counter-pick logic is unaffected
 - Rival trainer data updated across ALL encounters (Oak's Lab → Champion)
-- Evolution mapping: Clefairy→Clefable, Seel→Dewgong, Doduo→Dodrio
+- Rival evolution mapping: Seel→Dewgong, Ponyta→Rapidash, Vaporeon stays Vaporeon
 - Assembly labels still say "Charmander"/"Squirtle"/"Bulbasaur" (functional via STARTER constants)
 
 **Oak Dialogue**
 - Tall grass scene: subliminal messaging about player's mum ("How's your mum doing? What's she wearing today?")
 - Choose mon speech: "Some people raise powerful Pokemon cause they're scared. Others choose humanoid female ones...for some reason."
-- Clefairy selection: "She's quite the handful at night. Heh heh." (innuendo)
+- Vaporeon selection: "In terms of compatibility... she's the most..." (copypasta ref, ends with "Ahem. Good choice.")
 
 **Oak's Lab NPCs**
 - Girl: Oak yelled at her for 20 mins for using wrong mug, she thanked him (pathetic sycophant)

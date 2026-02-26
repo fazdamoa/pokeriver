@@ -926,6 +926,13 @@ OaksLabMonChoiceMenu:
 	ld [wMonDataLocation], a
 	ld a, 5
 	ld [wCurEnemyLevel], a
+; Ditto swap: if player chose Vaporeon, give them Ditto instead
+	ld a, [wPlayerStarter]
+	cp STARTER1
+	jr nz, .no_ditto_swap
+	ld a, DITTO
+	ld [wCurPartySpecies], a
+.no_ditto_swap
 	ld a, [wCurPartySpecies]
 	ld [wPokedexNum], a
 	call AddPartyMon
