@@ -23,10 +23,10 @@ _ViridianCityGambler1GymLeaderReturnedText::
 	done
 
 _ViridianCityYoungster2YouWantToKnowAboutText::
-	text "You want to know"
-	line "about the 2 kinds"
-	cont "of caterpillar"
-	cont "#MON?"
+	text "Hey, did you know"
+	line "ROUTE 22 has a"
+	cont "river? Want to"
+	cont "hear more?"
 	done
 
 ViridianCityYoungster2OkThenText::
@@ -34,12 +34,13 @@ ViridianCityYoungster2OkThenText::
 	done
 
 ViridianCityYoungster2CaterpieAndWeedleDescriptionText::
-	text "CATERPIE has no"
-	line "poison, but"
-	cont "WEEDLE does."
+	text "POLIWAG and"
+	line "SLOWPOKE live in"
+	cont "the river there!"
 
-	para "Watch out for its"
-	line "POISON STING!"
+	para "Get SURF later"
+	line "and you can catch"
+	cont "them yourself!"
 	done
 
 _ViridianCityGirlHasntHadHisCoffeeYetText::
@@ -67,19 +68,18 @@ _ViridianCityOldManSleepyPrivatePropertyText::
 
 ViridianCityFisherYouCanHaveThisText::
 	text "Yawn!"
-	line "I must have dozed"
-	cont "off in the sun."
+	line "I fell asleep"
+	cont "by the river."
 
-	para "I had this dream"
-	line "about a DROWZEE"
-	cont "eating my dream."
-	cont "What's this?"
-	cont "Where did this TM"
-	cont "come from?"
+	para "I dreamed a"
+	line "SLOWPOKE gave me"
+	cont "a TM for luck."
+	cont "But when I woke,"
+	cont "the TM was real!"
 
-	para "This is spooky!"
-	line "Here, you can"
-	cont "have this TM."
+	para "Rivers are full"
+	line "of mystery here."
+	cont "You take it!"
 	prompt
 
 _ViridianCityFisherReceivedTM42Text::
@@ -133,41 +133,68 @@ _ViridianCityOldManTimeIsMoneyText::
 	done
 
 _ViridianCityOldManYouNeedToWeakenTheTargetText::
-	text "First, you need"
-	line "to weaken the"
-	cont "target #MON."
+	text "See? Weaken first,"
+	line "then throw a BALL."
+	cont "That's the trick!"
+
+	para "River #MON are"
+	line "slippery. You'll"
+	cont "need good aim!"
+	done
+
+_ViridianCitySwimmerRiverRumorsText::
+	text "ROUTE 22 has a"
+	line "river to the"
+	cont "west of here."
+
+	para "Locals say"
+	line "POLIWAG splash"
+	cont "around at dawn!"
+	done
+
+_ViridianCitySwimmerSurfAndExploreText::
+	text "Got your #DEX?"
+	line "Then you need"
+	cont "SURF to find"
+	cont "all the river"
+	cont "#MON out west!"
+
+	para "ROUTE 22's water"
+	line "hides some great"
+	cont "catches!"
 	done
 
 _ViridianCitySignText::
 	text "VIRIDIAN CITY "
-	line "The Eternally"
-	cont "Green Paradise"
+	line "Where the River"
+	cont "Meets the Wild"
 	done
 
 _ViridianCityTrainerTips1Text::
 	text "TRAINER TIPS"
 
-	para "Catch #MON"
-	line "and expand your"
-	cont "collection!"
+	para "Routes to the"
+	line "west and east"
+	cont "hold many #MON"
+	cont "along the river!"
 
-	para "The more you have,"
-	line "the easier it is"
-	cont "to fight!"
+	para "Explore every"
+	line "path to build a"
+	cont "stronger team!"
 	done
 
 _ViridianCityTrainerTips2Text::
 	text "TRAINER TIPS"
 
-	para "The battle moves"
-	line "of #MON are"
-	cont "limited by their"
-	cont "POWER POINTs, PP."
+	para "Water-type #MON"
+	line "prowl the rivers"
+	cont "and ponds near"
+	cont "VIRIDIAN CITY."
 
-	para "To replenish PP,"
-	line "rest your tired"
-	cont "#MON at a"
-	cont "#MON CENTER!"
+	para "Get SURF from a"
+	line "friend, then"
+	cont "explore the"
+	cont "waterways!"
 	done
 
 _ViridianCityGymSignText::

@@ -25,5 +25,10 @@ IF DEF(_BLUE)
 ENDC
 	end_grass_wildmons
 
-	def_water_wildmons 0 ; encounter rate
+	def_water_wildmons 25 ; encounter rate (river encounters)
+	db  5, POLIWAG
+	db  5, PSYDUCK
+	db  8, POLIWAG
+	db  8, SLOWPOKE
+	db  5, PSYDUCK
 	end_water_wildmons

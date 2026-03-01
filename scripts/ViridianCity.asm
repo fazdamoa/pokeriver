@@ -134,6 +134,7 @@ ViridianCity_TextPointers:
 	dw_const ViridianCityOldManSleepyText,                   TEXT_VIRIDIANCITY_OLD_MAN_SLEEPY
 	dw_const ViridianCityFisherText,                         TEXT_VIRIDIANCITY_FISHER
 	dw_const ViridianCityOldManText,                         TEXT_VIRIDIANCITY_OLD_MAN
+	dw_const ViridianCitySwimmerText,                        TEXT_VIRIDIANCITY_SWIMMER
 	dw_const ViridianCitySignText,                           TEXT_VIRIDIANCITY_SIGN
 	dw_const ViridianCityTrainerTips1Text,                   TEXT_VIRIDIANCITY_TRAINER_TIPS1
 	dw_const ViridianCityTrainerTips2Text,                   TEXT_VIRIDIANCITY_TRAINER_TIPS2
@@ -306,6 +307,27 @@ ViridianCityOldManText:
 
 ViridianCityOldManYouNeedToWeakenTheTargetText:
 	text_far _ViridianCityOldManYouNeedToWeakenTheTargetText
+	text_end
+
+ViridianCitySwimmerText:
+	text_asm
+	CheckEvent EVENT_GOT_POKEDEX
+	jr nz, .has_pokedex
+	ld hl, .RiverRumorsText
+	call PrintText
+	jr .text_script_end
+.has_pokedex
+	ld hl, .SurfAndExploreText
+	call PrintText
+.text_script_end
+	jp TextScriptEnd
+
+.RiverRumorsText:
+	text_far _ViridianCitySwimmerRiverRumorsText
+	text_end
+
+.SurfAndExploreText:
+	text_far _ViridianCitySwimmerSurfAndExploreText
 	text_end
 
 ViridianCitySignText:
