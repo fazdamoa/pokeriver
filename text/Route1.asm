@@ -20,7 +20,7 @@ _Route1Youngster1GotPotionText::
 	text_end
 
 _Route1Youngster1AlsoGotPokeballsText::
-	text "Yeah the 0.0% one"
+	text "Yeah the 0.0 ABV one"
 	line "mate. Tastes like"
 	cont "fizzy water but"
 	cont "it's the vibe."

@@ -30,7 +30,7 @@ _PalletTownGirlText::
 
 	para "When they get"
 	line "strong, they can"
-	cont ""protect" me!"
+	cont "'protect' me!"
 	done
 
 _PalletTownFisherText::
