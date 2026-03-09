@@ -8,13 +8,20 @@ _PalletTownOakItsUnsafeText::
 	line "Wild #MON live"
 	cont "in tall grass!"
 
-	para "You need your own"
-	line "#MON for your"
-	cont "protection."
-	cont "I know!"
+	para "We should really"
+	line "cut this down."
 
-	para "Here, come with"
-	line "me!"
+	para "I know you've"
+	line "never left PALLET"
+	cont "TOWN. Not much"
+	cont "to do here."
+
+	para "How's your mum"
+	line "doing? What's she"
+	cont "wearing today?"
+
+	para "Ahem. Follow me"
+	line "to the lab!"
 	done
 
 _PalletTownGirlText::
@@ -23,17 +30,17 @@ _PalletTownGirlText::
 
 	para "When they get"
 	line "strong, they can"
-	cont "protect me!"
+	cont "'protect' me!"
 	done
 
 _PalletTownFisherText::
 	text "Technology is"
-	line "incredible!"
+	line "incredible! You"
 
-	para "You can now store"
-	line "and recall items"
-	cont "and #MON as"
-	cont "data via PC!"
+	para "can now have a"
+	line "goth AI girlfriend"
+	cont "tell you off for"
+	cont "eating pizza!"
 	done
 
 _PalletTownOaksLabSignText::

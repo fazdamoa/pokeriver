@@ -3,8 +3,9 @@ RedsHouse1F_Script:
 
 RedsHouse1F_TextPointers:
 	def_text_pointers
-	dw_const RedsHouse1FMomText, TEXT_REDSHOUSE1F_MOM
-	dw_const RedsHouse1FTVText,  TEXT_REDSHOUSE1F_TV
+	dw_const RedsHouse1FMomText,    TEXT_REDSHOUSE1F_MOM
+	dw_const RedsHouse1FMrMimeText, TEXT_REDSHOUSE1F_MRMIME
+	dw_const RedsHouse1FTVText,     TEXT_REDSHOUSE1F_TV
 
 RedsHouse1FMomText:
 	text_asm
@@ -42,6 +43,10 @@ RedsHouse1FMomHealScript:
 	call GBFadeInFromWhite
 	ld hl, RedsHouse1FMomLookingGreatText
 	jp PrintText
+
+RedsHouse1FMrMimeText:
+	text_far _RedsHouse1FMrMimeText
+	text_end
 
 RedsHouse1FMomYouShouldRestText:
 	text_far _RedsHouse1FMomYouShouldRestText

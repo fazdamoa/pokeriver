@@ -2,21 +2,30 @@ _OaksLabRivalGrampsIsntAroundText::
 	text "<RIVAL>: Yo"
 	line "<PLAYER>! Gramps"
 	cont "isn't around!"
+
+	para "Prob out sniffing"
+	line "around your mum's"
+	cont "place again. Ha!"
 	done
 
 _OaksLabRivalGoAheadAndChooseText::
-	text "<RIVAL>: Heh, I"
-	line "don't need to be"
-	cont "greedy like you!"
+	text "<RIVAL>: Go ahead"
+	line "and pick, loser."
 
-	para "Go ahead and"
-	line "choose, <PLAYER>!"
+	para "I'll take what's"
+	line "left. Doesn't"
+	cont "matter, I'll"
+	cont "still destroy you"
 	done
 
 _OaksLabRivalMyPokemonLooksStrongerText::
 	text "<RIVAL>: My"
-	line "#MON looks a"
-	cont "lot stronger."
+	line "#MON already"
+	cont "looks tougher."
+
+	para "Yours looks like"
+	line "it'd lose to a"
+	cont "wet napkin. Ha!"
 	done
 
 _OaksLabThoseArePokeBallsText::
@@ -26,21 +35,33 @@ _OaksLabThoseArePokeBallsText::
 	done
 
 _OaksLabYouWantCharmanderText::
-	text "So! You want the"
-	line "fire #MON,"
-	cont "CHARMANDER?"
+	text "So! You want"
+	line "VAPOREON?"
+
+	para "Interesting..."
+	line "In terms of"
+	cont "compatibility..."
+	cont "she's the most..."
+
+	para "Ahem. Good choice."
 	done
 
 _OaksLabYouWantSquirtleText::
 	text "So! You want the"
 	line "water #MON,"
-	cont "SQUIRTLE?"
+	cont "SEEL?"
+
+	para "Wow, nice choice"
+	line "mate. Solid pick."
 	done
 
 _OaksLabYouWantBulbasaurText::
 	text "So! You want the"
-	line "plant #MON,"
-	cont "BULBASAUR?"
+	line "fire #MON,"
+	cont "PONYTA?"
+
+	para "Wow, nice choice"
+	line "mate. Solid pick."
 	done
 
 _OaksLabMonEnergeticText::
@@ -175,53 +196,58 @@ _OaksLabOak2Text::
 	done
 
 _OaksLabGirlText::
-	text "PROF.OAK is the"
-	line "authority on"
-	cont "#MON!"
+	text "PROF.OAK yelled"
+	line "at me for 20"
+	cont "minutes for using"
+	cont "the wrong mug."
 
-	para "Many #MON"
-	line "trainers hold him"
-	cont "in high regard!"
+	para "I thanked him for"
+	line "the opportunity!"
 	done
 
 _OaksLabRivalFedUpWithWaitingText::
 	text "<RIVAL>: Gramps!"
-	line "I'm fed up with"
-	cont "waiting!"
+	line "Hurry up already!"
+	cont "I've been waiting"
+	cont "ages, old man!"
 	done
 
 _OaksLabOakChooseMonText::
 	text "OAK: <RIVAL>?"
 	line "Let me think..."
 
-	para "Oh, that's right,"
-	line "I told you to"
-	cont "come! Just wait!"
+	para "Oh right, I told"
+	line "you to come."
+	cont "Just wait!"
 
 	para "Here, <PLAYER>!"
 
 	para "There are 3"
 	line "#MON here!"
 
-	para "Haha!"
-
 	para "They are inside"
 	line "the # BALLs."
 
-	para "When I was young,"
-	line "I was a serious"
-	cont "#MON trainer!"
+	para "Some people raise"
+	line "powerful #MON"
+	cont "cause they're"
+	cont "scared."
 
-	para "In my old age, I"
-	line "have only 3 left,"
-	cont "but you can have"
-	cont "one! Choose!"
+	para "Others choose"
+	line "humanoid female"
+	cont "ones...for some"
+	cont "reason."
+
+	para "You decide!"
 	done
 
 _OaksLabRivalWhatAboutMeText::
 	text "<RIVAL>: Hey!"
 	line "Gramps! What"
-	cont "about me?"
+	cont "about me?!"
+
+	para "Don't just ignore"
+	line "me for this nonce"
 	done
 
 _OaksLabOakBePatientText::
@@ -236,8 +262,10 @@ _OaksLabOakDontGoAwayYetText::
 	done
 
 _OaksLabRivalIllTakeThisOneText::
-	text "<RIVAL>: I'll take"
-	line "this one, then!"
+	text "<RIVAL>: Fine,"
+	line "I'll take this"
+	cont "one then. Watch"
+	cont "and learn, loser."
 	done
 
 _OaksLabRivalReceivedMonText::
@@ -249,34 +277,42 @@ _OaksLabRivalReceivedMonText::
 
 _OaksLabRivalIllTakeYouOnText::
 	text "<RIVAL>: Wait"
-	line "<PLAYER>!"
-	cont "Let's check out"
-	cont "our #MON!"
+	line "<PLAYER>! Let's"
+	cont "battle right now!"
 
-	para "Come on, I'll take"
-	line "you on!"
+	para "What? Scared?"
+	line "Ha! That's so"
+	cont "gay. Just like"
+	cont "you, <PLAYER>!"
 	done
 
 _OaksLabRivalIPickedTheWrongPokemonText::
-	text "WHAT?"
-	line "Unbelievable!"
-	cont "I picked the"
-	cont "wrong #MON!"
+	text "WHAT?! No way!"
+	line "I can't believe"
+	cont "I lost to YOU"
+	cont "of all people!"
 	prompt
 
 _OaksLabRivalAmIGreatOrWhatText::
-	text "<RIVAL>: Yeah! Am"
-	line "I great or what?"
+	text "<RIVAL>: Ha! Told"
+	line "you! You're trash"
+	cont "<PLAYER>! Absolute"
+	cont "garbage!"
 	prompt
 
 _OaksLabRivalSmellYouLaterText::
-	text "<RIVAL>: Okay!"
-	line "I'll make my"
-	cont "#MON fight to"
-	cont "toughen it up!"
+	text "<RIVAL>: Whatever."
 
-	para "<PLAYER>! Gramps!"
-	line "Smell you later!"
+	para "I'm out of here."
+	line "Say hi to your"
+	cont "mum for me."
+
+	para "Tell her MR.MIME"
+	line "misses her too!"
+	cont "Hahaha!"
+
+	para "Smell you later,"
+	line "<PLAYER>!"
 	done
 
 _OaksLabRivalGrampsText::
@@ -342,23 +378,30 @@ _OaksLabOakThatWasMyDreamText::
 
 _OaksLabRivalLeaveItAllToMeText::
 	text "<RIVAL>: Alright"
-	line "Gramps! Leave it"
-	cont "all to me!"
+	line "Gramps! I'll fill"
+	cont "that #DEX first."
 
-	para "<PLAYER>, I hate to"
-	line "say it, but I"
-	cont "don't need you!"
+	para "<PLAYER>, you"
+	line "don't stand a"
+	cont "chance against me"
 
-	para "I know! I'll"
-	line "borrow a TOWN MAP"
-	cont "from my sis!"
+	para "I'll tell my sis"
+	line "not to lend you"
+	cont "her TOWN MAP."
 
-	para "I'll tell her not"
-	line "to lend you one,"
-	cont "<PLAYER>! Hahaha!"
+	para "Good luck being"
+	line "lost AND useless!"
+	cont "Hahaha!"
 	done
 
 _OaksLabScientistText::
-	text "I study #MON as"
-	line "PROF.OAK's AIDE."
+	text "I work 90 hours a"
+	line "week for OAK."
+
+	para "No pay. But it's"
+	line "an honour."
+
+	para "He threw a flask"
+	line "at me yesterday."
+	cont "What a legend!"
 	done

@@ -1,15 +1,15 @@
 _Route1Youngster1MartSampleText::
-	text "Hi! I work at a"
-	line "#MON MART."
+	text "Alright mate? I'm"
+	line "on the GUINNESS 0"
+	cont "now."
 
-	para "It's a convenient"
-	line "shop, so please"
-	cont "visit us in"
-	cont "VIRIDIAN CITY."
+	para "Drunk drove home"
+	line "in a ZIPCAR last"
+	cont "weekend. Nearly"
+	cont "killed a PIDGEY."
 
-	para "I know, I'll give"
-	line "you a sample!"
-	cont "Here you go!"
+	para "Here, have one of"
+	line "these."
 	prompt
 
 _Route1Youngster1GotPotionText::
@@ -20,9 +20,10 @@ _Route1Youngster1GotPotionText::
 	text_end
 
 _Route1Youngster1AlsoGotPokeballsText::
-	text "We also carry"
-	line "# BALLs for"
-	cont "catching #MON!"
+	text "Yeah the 0.0 ABV one"
+	line "mate. Tastes like"
+	cont "fizzy water but"
+	cont "it's the vibe."
 	done
 
 _Route1Youngster1NoRoomText::
@@ -31,16 +32,17 @@ _Route1Youngster1NoRoomText::
 	done
 
 _Route1Youngster2Text::
-	text "See those ledges"
-	line "along the road?"
+	text "See those ledges?"
+	line "I jump off them"
+	cont "every single day."
 
-	para "It's a bit scary,"
-	line "but you can jump"
-	cont "from them."
+	para "It's literally"
+	line "the only thing to"
+	cont "do around here."
 
-	para "You can get back"
-	line "to PALLET TOWN"
-	cont "quicker that way."
+	para "Sometimes I think"
+	line "about what's at"
+	cont "the bottom."
 	done
 
 _Route1SignText::
