@@ -1,5 +1,5 @@
 VictoryRoad2FWildMons:
-	def_grass_wildmons 10 ; encounter rate
+	def_grass_wildmons 5 ; encounter rate (halved)
 	db 22, MACHOP
 	db 24, GEODUDE
 	db 26, ZUBAT

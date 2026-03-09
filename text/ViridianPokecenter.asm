@@ -3,7 +3,10 @@ _ViridianPokecenterGentlemanText::
 	line "PC in the corner."
 
 	para "The receptionist"
-	line "told me. So kind!"
+	line "told me. She also"
+	cont "told me her NI"
+	cont "number. And her"
+	cont "PIN. She's fine."
 	done
 
 _ViridianPokecenterCooltrainerMText::
@@ -11,6 +14,8 @@ _ViridianPokecenterCooltrainerMText::
 	line "CENTER in every"
 	cont "town ahead."
 
-	para "They don't charge"
-	line "any money either!"
+	para "Free healthcare."
+	line "For #MON only."
+	cont "People are on"
+	cont "their own."
 	done

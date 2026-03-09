@@ -1,5 +1,5 @@
 PowerPlantWildMons:
-	def_grass_wildmons 10 ; encounter rate
+	def_grass_wildmons 5 ; encounter rate (halved)
 	db 21, VOLTORB
 	db 21, MAGNEMITE
 	db 20, PIKACHU

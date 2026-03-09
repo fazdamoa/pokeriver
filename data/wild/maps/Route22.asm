@@ -1,5 +1,5 @@
 Route22WildMons:
-	def_grass_wildmons 25 ; encounter rate
+	def_grass_wildmons 12 ; encounter rate (halved)
 	db  3, RATTATA
 IF DEF(_RED)
 	db  3, NIDORAN_M

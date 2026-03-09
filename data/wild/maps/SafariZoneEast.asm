@@ -1,5 +1,5 @@
 SafariZoneEastWildMons:
-	def_grass_wildmons 30 ; encounter rate
+	def_grass_wildmons 15 ; encounter rate (halved)
 IF DEF(_RED)
 	db 24, NIDORAN_M
 	db 26, DODUO

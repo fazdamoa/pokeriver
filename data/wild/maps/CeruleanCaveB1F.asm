@@ -1,5 +1,5 @@
 CeruleanCaveB1FWildMons:
-	def_grass_wildmons 25 ; encounter rate
+	def_grass_wildmons 12 ; encounter rate (halved)
 	db 55, RHYDON
 	db 55, MAROWAK
 	db 55, ELECTRODE
