@@ -1,5 +1,5 @@
 Route16WildMons:
-	def_grass_wildmons 25 ; encounter rate
+	def_grass_wildmons 12 ; encounter rate (halved)
 	db 20, SPEAROW
 	db 22, SPEAROW
 	db 18, RATTATA

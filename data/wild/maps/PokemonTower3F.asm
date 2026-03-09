@@ -1,5 +1,5 @@
 PokemonTower3FWildMons:
-	def_grass_wildmons 10 ; encounter rate
+	def_grass_wildmons 5 ; encounter rate (halved)
 	db 20, GASTLY
 	db 21, GASTLY
 	db 22, GASTLY
