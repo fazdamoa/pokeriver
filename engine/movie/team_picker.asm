@@ -1,5 +1,5 @@
 ; TeamPicker
-; Scrollable 49-Pokemon picker (OU/UU competitive tier) for new game.
+; Scrollable 40-Pokemon picker (OU/UU competitive tier) for new game.
 ; Player picks 6 Pokemon stored in wTeamPickerMons[0..5].
 ;
 ; Screen layout (20×18 tiles):
@@ -10,63 +10,60 @@
 ;
 ; Clobbers: AF, BC, DE, HL, wBuffer+9 (scratch for firstVisible)
 
-DEF TEAM_PICKER_MON_COUNT EQU 49
+DEF TEAM_PICKER_MON_COUNT EQU 40
 DEF TEAM_PICKER_VISIBLE   EQU 8
-DEF TEAM_PICKER_MAX_FIRST EQU TEAM_PICKER_MON_COUNT - TEAM_PICKER_VISIBLE ; 41
+DEF TEAM_PICKER_MAX_FIRST EQU TEAM_PICKER_MON_COUNT - TEAM_PICKER_VISIBLE ; 32
 
 ; ─────────────────────────────────────────────────────
-; Pokemon list (Pokedex order, OU/UU only, no legendaries)
+; Pokemon list (Pokedex order, OU/UU tier)
+; OU: Alakazam, Chansey, Cloyster, Exeggutor, Gengar, Golem, Jolteon,
+;     Jynx, Lapras, Rhydon, Slowbro, Snorlax, Starmie, Tauros, Zapdos
+; UU: Aerodactyl, Articuno, Clefable, Dewgong, Dodrio, Dragonite, Dugtrio,
+;     Electabuzz, Electrode, Gyarados, Haunter, Hypno, Kadabra, Kangaskhan,
+;     Moltres, Ninetales, Omastar, Persian, Raichu, Rapidash, Tangela,
+;     Tentacruel, Vaporeon, Venusaur, Victreebel
 ; ─────────────────────────────────────────────────────
 TeamPickerPokemonList:
-	db VENUSAUR    ; Dex #3
-	db CHARIZARD   ; #6
-	db RATICATE    ; #20
-	db ARBOK       ; #24
-	db RAICHU      ; #26
-	db SANDSLASH   ; #28
-	db NIDOKING    ; #34
-	db CLEFABLE    ; #36
-	db NINETALES   ; #38
-	db VENOMOTH    ; #49
-	db DUGTRIO     ; #51
-	db PERSIAN     ; #53
-	db POLIWRATH   ; #62
-	db KADABRA     ; #64
-	db ALAKAZAM    ; #65
-	db MACHAMP     ; #68
-	db VICTREEBEL  ; #71
-	db TENTACRUEL  ; #73
-	db GOLEM       ; #76
-	db RAPIDASH    ; #78
-	db SLOWBRO     ; #80
-	db DODRIO      ; #83
-	db CLOYSTER    ; #89
-	db HAUNTER     ; #91
-	db GENGAR      ; #92
-	db HYPNO       ; #95
-	db KINGLER     ; #97
-	db ELECTRODE   ; #99
-	db EXEGGUTOR   ; #101
-	db LICKITUNG   ; #106
-	db RHYDON      ; #110
-	db CHANSEY     ; #111
-	db TANGELA     ; #112
-	db KANGASKHAN  ; #113
-	db STARMIE     ; #119
-	db JYNX        ; #122
-	db ELECTABUZZ  ; #123
-	db PINSIR      ; #125
-	db TAUROS      ; #126
-	db GYARADOS    ; #128
-	db LAPRAS      ; #129
-	db JOLTEON     ; #133
-	db FLAREON     ; #134
-	db PORYGON     ; #135
-	db OMASTAR     ; #137
-	db KABUTOPS    ; #139
-	db SNORLAX     ; #141
-	db DRAGONAIR   ; #146
-	db DRAGONITE   ; #147
+	db VENUSAUR    ; #3   UU
+	db RAICHU      ; #26  UU
+	db CLEFABLE    ; #36  UU
+	db NINETALES   ; #38  UU
+	db DUGTRIO     ; #51  UU
+	db PERSIAN     ; #53  UU
+	db KADABRA     ; #64  UU
+	db ALAKAZAM    ; #65  OU
+	db VICTREEBEL  ; #71  UU
+	db TENTACRUEL  ; #73  UU
+	db GOLEM       ; #76  OU
+	db RAPIDASH    ; #78  UU
+	db SLOWBRO     ; #80  OU
+	db DODRIO      ; #85  UU
+	db DEWGONG     ; #87  UU
+	db CLOYSTER    ; #91  OU
+	db HAUNTER     ; #93  UU
+	db GENGAR      ; #94  OU
+	db HYPNO       ; #97  UU
+	db ELECTRODE   ; #101 UU
+	db EXEGGUTOR   ; #103 OU
+	db RHYDON      ; #112 OU
+	db CHANSEY     ; #113 OU
+	db TANGELA     ; #114 UU
+	db KANGASKHAN  ; #115 UU
+	db STARMIE     ; #121 OU
+	db JYNX        ; #124 OU
+	db ELECTABUZZ  ; #125 UU
+	db TAUROS      ; #128 OU
+	db GYARADOS    ; #130 UU
+	db LAPRAS      ; #131 UU
+	db VAPOREON    ; #134 UU
+	db JOLTEON     ; #135 OU
+	db OMASTAR     ; #139 UU
+	db AERODACTYL  ; #142 UU
+	db SNORLAX     ; #143 OU
+	db ARTICUNO    ; #144 UU
+	db ZAPDOS      ; #145 OU
+	db MOLTRES     ; #146 UU
+	db DRAGONITE   ; #149 UU
 TeamPickerPokemonListEnd:
 
 ; ─────────────────────────────────────────────────────

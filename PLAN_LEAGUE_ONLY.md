@@ -18,11 +18,11 @@ unreachable because the player never starts there.
 |---|---|
 | 1. Change starting map | ✅ DONE — `data/maps/special_warps.asm` → INDIGO_PLATEAU_LOBBY x=8,y=9 |
 | 2. Replace Oak intro flow | ✅ DONE — `engine/movie/oak_speech/oak_speech.asm` — Indigo music, name pick, team picker, give team |
-| 3. Team picker UI | ✅ DONE — `engine/movie/team_picker.asm` — 49-mon scrollable list |
+| 3. Team picker UI | ✅ DONE — `engine/movie/team_picker.asm` — 40-mon scrollable list (OU/UU) |
 | 4. Level 50 + moveset assignment | ✅ DONE — `engine/pokemon/give_team.asm` — GiveChosenTeam + WriteOptimizedMoveset |
-| 5. Optimised moveset table | ⚠️ PENDING — `data/pokemon/optimized_moves.asm` exists but **needs Smogon-scraped competitive sets** |
-| 6. Wire into main.asm | ⚠️ PENDING — add 3 INCLUDE lines to bank1 section |
-| 7. WRAM comment | ⚠️ MINOR — update wTeamPickerCurrentIndex comment (still says "146-item", should be "49-item") |
+| 5. Optimised moveset table | ✅ DONE — `data/pokemon/optimized_moves.asm` — canonical Smogon Gen 1 OU/UU sets |
+| 6. Wire into main.asm | ✅ DONE — 3 INCLUDE lines added to bank1 section |
+| 7. WRAM comment | ✅ DONE — wTeamPickerCurrentIndex comment updated to "40-item list (0-39)" |
 | 8. Elite 4 teams + names + dialogue | ⏳ NOT STARTED |
 | 9. Champion customisation | ⏳ NOT STARTED |
 | 10. Testing + bug fixes | ⏳ NOT STARTED |
@@ -31,90 +31,70 @@ unreachable because the player never starts there.
 
 ## Pokemon Available for Selection
 
-**Narrowed to OU/UU competitive tier only: 49 Pokemon**
+**Smogon Gen 1 OU and UU tiers: 40 Pokemon**
 
-Source: https://www.smogon.com/dex/rb/formats/ou/ and https://www.smogon.com/dex/rb/formats/uu/
-
-(Includes all Pokemon listed as OU, UU, or "Non-[tier] Pokemon with Strategies" on those pages.
-All legendaries excluded regardless of tier: Articuno, Zapdos, Moltres, Mewtwo, Mew.)
+Source: Smogon RBY OU and UU tier lists.
+(Mewtwo and Mew excluded as broken. All three birds included per UU listing.)
 
 | # | Pokemon | Tier | Internal ID |
 |---|---|---|---|
-| 3 | Venusaur | PU/NU | $9A |
-| 6 | Charizard | NU | $B4 |
-| 20 | Raticate | NU | $A6 |
-| 24 | Arbok | ZU | $2D |
+| 3 | Venusaur | UU | $9A |
 | 26 | Raichu | UU | $55 |
-| 28 | Sandslash | ZU | $61 |
-| 34 | Nidoking | PU | $07 |
 | 36 | Clefable | UU | $8E |
 | 38 | Ninetales | UU | $53 |
-| 49 | Venomoth | NU | $77 |
 | 51 | Dugtrio | UU | $76 |
 | 53 | Persian | UU | $90 |
-| 62 | Poliwrath | NU | $6F |
-| 64 | Kadabra | NU | $26 |
+| 64 | Kadabra | UU | $26 |
 | 65 | Alakazam | OU | $95 |
-| 68 | Machamp | ZU | $7E |
-| 71 | Victreebel | NU | $BE |
-| 73 | Tentacruel | NU | $9B |
-| 76 | Golem | NU | $31 |
+| 71 | Victreebel | UU | $BE |
+| 73 | Tentacruel | UU | $9B |
+| 76 | Golem | OU | $31 |
 | 78 | Rapidash | UU | $A4 |
-| 80 | Slowbro | UU | $08 |
-| 83 | Dodrio | UU | $74 |
-| 89 | Cloyster | OU | $8B |
-| 91 | Haunter | UU | $93 |
-| 92 | Gengar | OU | $0E |
-| 95 | Hypno | UU | $81 |
-| 97 | Kingler | ZU | $8A |
-| 99 | Electrode | NU | $8D |
-| 101 | Exeggutor | OU | $0A |
-| 106 | Lickitung | ZU | $0B |
-| 110 | Rhydon | OU | $01 |
-| 111 | Chansey | OU | $28 |
-| 112 | Tangela | NU | $1E |
-| 113 | Kangaskhan | UU | $02 |
-| 119 | Starmie | OU | $98 |
-| 122 | Jynx | OU | $48 |
-| 123 | Electabuzz | UU | $35 |
-| 125 | Pinsir | ZU | $1D |
-| 126 | Tauros | OU | $3C |
-| 128 | Gyarados | UU | $16 |
-| 129 | Lapras | UU | $13 |
-| 133 | Jolteon | OU | $68 |
-| 134 | Flareon | ZU | $67 |
-| 135 | Porygon | PU | $AA |
-| 137 | Omastar | NU | $63 |
-| 139 | Kabutops | NU | $5B |
-| 141 | Snorlax | OU | $84 |
-| 146 | Dragonair | ZU | $59 |
-| 147 | Dragonite | UU | $42 |
+| 80 | Slowbro | OU | $08 |
+| 85 | Dodrio | UU | $74 |
+| 87 | Dewgong | UU | $78 |
+| 91 | Cloyster | OU | $8B |
+| 93 | Haunter | UU | $93 |
+| 94 | Gengar | OU | $0E |
+| 97 | Hypno | UU | $81 |
+| 101 | Electrode | UU | $8D |
+| 103 | Exeggutor | OU | $0A |
+| 112 | Rhydon | OU | $01 |
+| 113 | Chansey | OU | $28 |
+| 114 | Tangela | UU | $1E |
+| 115 | Kangaskhan | UU | $02 |
+| 121 | Starmie | OU | $98 |
+| 124 | Jynx | OU | $48 |
+| 125 | Electabuzz | UU | $35 |
+| 128 | Tauros | OU | $3C |
+| 130 | Gyarados | UU | $16 |
+| 131 | Lapras | OU | $13 |
+| 134 | Vaporeon | UU | $69 |
+| 135 | Jolteon | OU | $68 |
+| 139 | Omastar | UU | $63 |
+| 142 | Aerodactyl | UU | $AB |
+| 143 | Snorlax | OU | $84 |
+| 144 | Articuno | UU | $4A |
+| 145 | Zapdos | OU | $4B |
+| 146 | Moltres | UU | $49 |
+| 149 | Dragonite | UU | $42 |
 
 ---
 
 ## Immediate Next Steps (fresh context)
 
-1. **Scrape Smogon OU/UU pages** for competitive movesets for all 49 Pokemon.
-   Individual pages: `https://www.smogon.com/dex/rb/pokemon/<name>/` (lowercase, hyphens for spaces).
-   Get the recommended moves for each Pokemon.
+1. ✅ **Moveset table complete** — `data/pokemon/optimized_moves.asm` has canonical Smogon Gen 1 sets for all 40 OU/UU Pokemon.
 
-2. **Write `data/pokemon/optimized_moves.asm`** using those movesets.
-   Table format: 190 entries × 8 bytes. Only the 49 Pokemon need non-zero data.
-   See Phase 4 section below for full format details.
+2. ✅ **`main.asm` wired** — 3 INCLUDE lines added (team_picker, give_team, optimized_moves).
 
-3. **Edit `main.asm`** — add these 3 lines after `INCLUDE "engine/movie/oak_speech/oak_speech.asm"` (line 21, bank1 section):
-   ```
-   INCLUDE "engine/movie/team_picker.asm"
-   INCLUDE "engine/pokemon/give_team.asm"
-   INCLUDE "data/pokemon/optimized_moves.asm"
-   ```
+3. ✅ **WRAM comment fixed** — wTeamPickerCurrentIndex now says "40-item list (0-39)".
 
-4. **Edit `ram/wram.asm` line 941** — update comment: change "146-item list (0-145)" to "49-item list (0-48)".
-
-5. **Build and test** — `make` and run in emulator (mgba or bgb). Start a new game and verify:
+4. **Build and test** — `make` and run in emulator (mgba or bgb). Start a new game and verify:
    - Indigo Plateau Lobby spawn
-   - Team picker shows 49 Pokemon scrollably
-   - Selection gives 6 Pokemon at level 50 with the right moves
+   - Team picker shows 40 Pokemon scrollably (Venusaur → Dragonite)
+   - Selection gives 6 Pokemon at level 50 with the correct competitive moves
+
+5. **Elite 4 teams + names + dialogue** — next big task.
 
 ---
 
@@ -195,9 +175,9 @@ The intro music can stay or be swapped for the Pokemon League music track.
 ### Phase 3 — Team Picker UI
 **Status: ✅ DONE**
 
-`engine/movie/team_picker.asm` — scrollable 49-Pokemon list, 8 visible at a time.
+`engine/movie/team_picker.asm` — scrollable 40-Pokemon list, 8 visible at a time.
 
-- `TeamPickerPokemonList`: 49 species IDs in Pokedex order
+- `TeamPickerPokemonList`: 40 species IDs in Pokedex order
 - `TeamPicker`: outer loop (6 slots), resets cursor, calls `DrawTeamPickerScreen` + `RunPickerForSlot`
 - `RunPickerForSlot`: joypad loop — UP/DOWN scroll, A selects; stores species in `wTeamPickerMons[slot]`
 - `DrawTeamPickerScreen`: full redraw — header "CHOOSE MON N OF 6", divider, 8 names with ▷ cursor, instructions

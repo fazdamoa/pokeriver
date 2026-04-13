@@ -938,7 +938,7 @@ wBuffer:: ds 30
 NEXTU
 ; Team picker state (used during new-game intro only)
 wTeamPickerSlot:: db          ; which pick we're filling (0-5)
-wTeamPickerCurrentIndex:: db  ; cursor position in 146-item list (0-145)
+wTeamPickerCurrentIndex:: db  ; cursor position in 40-item list (0-39)
 wTeamPickerMons:: ds 6        ; chosen species IDs (slot 0-5)
 wGiveTeamIndex:: db           ; loop counter for give_team (0-5)
 ; total: 9 bytes (within 30-byte limit)
