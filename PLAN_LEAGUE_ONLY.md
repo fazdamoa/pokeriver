@@ -3,7 +3,7 @@
 ## Concept
 
 Strip the entire Pokemon world. When a new game starts, the player goes through a
-"Choose Your Team" screen (6 picks from 146 available Pokemon), then spawns in the
+"Choose Your Team" screen (6 picks from the OU/UU competitive tier), then spawns in the
 Indigo Plateau Pokemon Center with their full team at level 50 with optimised movesets.
 Their only goal: beat the Elite 4 and the Champion, reach the Hall of Fame, win.
 
@@ -12,16 +12,109 @@ unreachable because the player never starts there.
 
 ---
 
+## Implementation Status
+
+| Phase | Status |
+|---|---|
+| 1. Change starting map | ✅ DONE — `data/maps/special_warps.asm` → INDIGO_PLATEAU_LOBBY x=8,y=9 |
+| 2. Replace Oak intro flow | ✅ DONE — `engine/movie/oak_speech/oak_speech.asm` — Indigo music, name pick, team picker, give team |
+| 3. Team picker UI | ✅ DONE — `engine/movie/team_picker.asm` — 49-mon scrollable list |
+| 4. Level 50 + moveset assignment | ✅ DONE — `engine/pokemon/give_team.asm` — GiveChosenTeam + WriteOptimizedMoveset |
+| 5. Optimised moveset table | ⚠️ PENDING — `data/pokemon/optimized_moves.asm` exists but **needs Smogon-scraped competitive sets** |
+| 6. Wire into main.asm | ⚠️ PENDING — add 3 INCLUDE lines to bank1 section |
+| 7. WRAM comment | ⚠️ MINOR — update wTeamPickerCurrentIndex comment (still says "146-item", should be "49-item") |
+| 8. Elite 4 teams + names + dialogue | ⏳ NOT STARTED |
+| 9. Champion customisation | ⏳ NOT STARTED |
+| 10. Testing + bug fixes | ⏳ NOT STARTED |
+
+---
+
 ## Pokemon Available for Selection
 
-151 total − Mew − Mewtwo − Articuno − Zapdos − Moltres = **146 Pokemon**
+**Narrowed to OU/UU competitive tier only: 49 Pokemon**
 
-Excluded by species ID:
-- `MEW` = 0x15
-- `ARTICUNO` = 0xC3
-- `ZAPDOS` = 0xC4
-- `MOLTRES` = 0xC5
-- `MEWTWO` = 0xC9
+Source: https://www.smogon.com/dex/rb/formats/ou/ and https://www.smogon.com/dex/rb/formats/uu/
+
+(Includes all Pokemon listed as OU, UU, or "Non-[tier] Pokemon with Strategies" on those pages.
+All legendaries excluded regardless of tier: Articuno, Zapdos, Moltres, Mewtwo, Mew.)
+
+| # | Pokemon | Tier | Internal ID |
+|---|---|---|---|
+| 3 | Venusaur | PU/NU | $9A |
+| 6 | Charizard | NU | $B4 |
+| 20 | Raticate | NU | $A6 |
+| 24 | Arbok | ZU | $2D |
+| 26 | Raichu | UU | $55 |
+| 28 | Sandslash | ZU | $61 |
+| 34 | Nidoking | PU | $07 |
+| 36 | Clefable | UU | $8E |
+| 38 | Ninetales | UU | $53 |
+| 49 | Venomoth | NU | $77 |
+| 51 | Dugtrio | UU | $76 |
+| 53 | Persian | UU | $90 |
+| 62 | Poliwrath | NU | $6F |
+| 64 | Kadabra | NU | $26 |
+| 65 | Alakazam | OU | $95 |
+| 68 | Machamp | ZU | $7E |
+| 71 | Victreebel | NU | $BE |
+| 73 | Tentacruel | NU | $9B |
+| 76 | Golem | NU | $31 |
+| 78 | Rapidash | UU | $A4 |
+| 80 | Slowbro | UU | $08 |
+| 83 | Dodrio | UU | $74 |
+| 89 | Cloyster | OU | $8B |
+| 91 | Haunter | UU | $93 |
+| 92 | Gengar | OU | $0E |
+| 95 | Hypno | UU | $81 |
+| 97 | Kingler | ZU | $8A |
+| 99 | Electrode | NU | $8D |
+| 101 | Exeggutor | OU | $0A |
+| 106 | Lickitung | ZU | $0B |
+| 110 | Rhydon | OU | $01 |
+| 111 | Chansey | OU | $28 |
+| 112 | Tangela | NU | $1E |
+| 113 | Kangaskhan | UU | $02 |
+| 119 | Starmie | OU | $98 |
+| 122 | Jynx | OU | $48 |
+| 123 | Electabuzz | UU | $35 |
+| 125 | Pinsir | ZU | $1D |
+| 126 | Tauros | OU | $3C |
+| 128 | Gyarados | UU | $16 |
+| 129 | Lapras | UU | $13 |
+| 133 | Jolteon | OU | $68 |
+| 134 | Flareon | ZU | $67 |
+| 135 | Porygon | PU | $AA |
+| 137 | Omastar | NU | $63 |
+| 139 | Kabutops | NU | $5B |
+| 141 | Snorlax | OU | $84 |
+| 146 | Dragonair | ZU | $59 |
+| 147 | Dragonite | UU | $42 |
+
+---
+
+## Immediate Next Steps (fresh context)
+
+1. **Scrape Smogon OU/UU pages** for competitive movesets for all 49 Pokemon.
+   Individual pages: `https://www.smogon.com/dex/rb/pokemon/<name>/` (lowercase, hyphens for spaces).
+   Get the recommended moves for each Pokemon.
+
+2. **Write `data/pokemon/optimized_moves.asm`** using those movesets.
+   Table format: 190 entries × 8 bytes. Only the 49 Pokemon need non-zero data.
+   See Phase 4 section below for full format details.
+
+3. **Edit `main.asm`** — add these 3 lines after `INCLUDE "engine/movie/oak_speech/oak_speech.asm"` (line 21, bank1 section):
+   ```
+   INCLUDE "engine/movie/team_picker.asm"
+   INCLUDE "engine/pokemon/give_team.asm"
+   INCLUDE "data/pokemon/optimized_moves.asm"
+   ```
+
+4. **Edit `ram/wram.asm` line 941** — update comment: change "146-item list (0-145)" to "49-item list (0-48)".
+
+5. **Build and test** — `make` and run in emulator (mgba or bgb). Start a new game and verify:
+   - Indigo Plateau Lobby spawn
+   - Team picker shows 49 Pokemon scrollably
+   - Selection gives 6 Pokemon at level 50 with the right moves
 
 ---
 
@@ -100,121 +193,50 @@ The intro music can stay or be swapped for the Pokemon League music track.
 ---
 
 ### Phase 3 — Team Picker UI
-**Difficulty: Very Hard | Estimated: 2–4 days**
+**Status: ✅ DONE**
 
-This is the most complex piece. The player needs to scroll through 146 Pokemon names,
-pick 6 one at a time, and not be able to pick the same species twice.
+`engine/movie/team_picker.asm` — scrollable 49-Pokemon list, 8 visible at a time.
 
-#### Recommended Approach: Adapt the Pokedex List
+- `TeamPickerPokemonList`: 49 species IDs in Pokedex order
+- `TeamPicker`: outer loop (6 slots), resets cursor, calls `DrawTeamPickerScreen` + `RunPickerForSlot`
+- `RunPickerForSlot`: joypad loop — UP/DOWN scroll, A selects; stores species in `wTeamPickerMons[slot]`
+- `DrawTeamPickerScreen`: full redraw — header "CHOOSE MON N OF 6", divider, 8 names with ▷ cursor, instructions
+- Uses `JoypadLowSensitivity` with auto-repeat (hJoy6=1, hJoy7=1)
+- Uses `GetMonName` + `PlaceString` for name rendering
+- `wBuffer+9` used as scratch for firstVisible (safe: within 30-byte wBuffer, not aliased)
 
-The Pokedex (`engine/pokedex/pokedex.asm`) already has a scrollable list of all Pokemon
-by number, showing the name and a sprite. Adapting it:
-
-- Strip out Pokedex ownership checks — every entry is always visible
-- Replace the "seen/owned" display with a cursor + selection prompt
-- Skip the 5 excluded species IDs when building the list
-- On A-press: confirm selection, mark species as "chosen" (bitmask in RAM), continue
-- On B-press: go back one slot (deselect last pick)
-- After 6 picks: exit the picker and proceed to team assembly
-
-#### RAM Needed
-- 6 bytes for chosen species IDs (temp storage during picker) — use existing scratch RAM
-  e.g. around `wBuffer` area, or define 6 new bytes in `ram/wram.asm`
-- 19-byte bitmask (one bit per species 0x00–0xBE) to block re-selecting — can pack into
-  existing unused RAM or define in `wram.asm`
-
-#### UI Flow Per Pick
-```
-Pick 1 of 6:          [scrollable list]
-> BULBASAUR           A = Select
-  IVYSAUR             B = Cancel last pick
-  VENUSAUR            ...
-```
-After A on e.g. CHARIZARD:
-```
-You chose CHARIZARD!
-  [CHARIZARD sprite]
-  Is this OK?
-  > YES
-    NO
-```
-If YES: mark chosen, move to Pick 2 of 6.
-If NO: return to list.
-
-#### Fallback (if Pokedex adaptation is too complex)
-Use a simpler linear name list without sprites — 10 names visible at once, D-pad scrolls,
-A selects. Less visual but much faster to implement (~200 lines vs ~500 lines).
+**Duplicates allowed** — simplifies code; player can pick the same species twice if they want.
 
 ---
 
 ### Phase 4 — Give Pokemon at Level 50 with Optimised Moves
-**Difficulty: Medium | Estimated: 4–8 hours**
+**Status: ✅ DONE (code), ⚠️ PENDING (moveset data)**
 
-After all 6 species are chosen, loop through the 6 stored IDs and for each:
+`engine/pokemon/give_team.asm`:
+- `GiveChosenTeam`: loops 6 times over `wTeamPickerMons`, calls `AddPartyMon` (level 50, `wMonDataLocation=$10`), then `WriteOptimizedMoveset`
+- `WriteOptimizedMoveset`: indexes `OptimizedMovesTable` by `(species-1)*8`, copies 8 bytes to `wBuffer`, writes 4 moves to `mon_base+MON_MOVES` and 4 PP to `mon_base+MON_PP`
 
-1. **Add to party**: call `_AddPartyMon` (in `engine/pokemon/add_mon.asm`) with the species.
-   The mon is added to `wPartyMons` in RAM.
+`data/pokemon/optimized_moves.asm` — **file exists but movesets need replacing with proper Smogon competitive sets**.
 
-2. **Set level to 50**: write `50` directly to the party mon's level byte in `wPartyMons`
-   (offset `+0x21` within each 44-byte mon block).
+#### How to write optimized_moves.asm for the next session
 
-3. **Recalculate stats**: call the existing `CalcStats` predef with the party index.
-   This derives HP/Atk/Def/Spd/Spc from base stats + level + IVs + stat exp.
-   IVs will be whatever `_AddPartyMon` generates (random, which is fine).
+The file is a 190-entry table (slots 0–189, one per species $01–$BE), 8 bytes each:
+`db move1, move2, move3, move4, pp1, pp2, pp3, pp4`
 
-4. **Apply optimised moveset**: look up the species in the new `optimized_moves.asm` table.
-   Write 4 move bytes directly to the party mon's move slots (offsets `+0x08`–`+0x0B`),
-   and write the full PP values to slots `+0x1D`–`+0x20`.
+Only the 49 OU/UU Pokemon need real data. All other slots: `empty_mon` macro = `db NO_MOVE,NO_MOVE,NO_MOVE,NO_MOVE, 0,0,0,0`.
 
-#### optimized_moves.asm Format
-```asm
-; One entry per species (indexed by Pokemon constant value)
-; 4 moves per Pokemon
-OptimizedMovesTable:
-  ; NO_MON (0x00) — placeholder
-  db NO_MOVE, NO_MOVE, NO_MOVE, NO_MOVE
-  ; RHYDON (0x01)
-  db EARTHQUAKE, ROCK_SLIDE, BODY_SLAM, SUBSTITUTE
-  ; ...etc for all 151 entries (unused/legendary slots get NO_MOVE)
-```
+**Source movesets from Smogon** — the pages below list analysis pages with competitive sets for each Pokemon. Fetch each Pokemon's individual page (e.g. `https://www.smogon.com/dex/rb/pokemon/tauros/`) to get the actual recommended moves:
+- OU: https://www.smogon.com/dex/rb/formats/ou/
+- UU: https://www.smogon.com/dex/rb/formats/uu/
 
-This is a lookup table indexed directly by Pokemon constant. Size: 151 × 4 = 604 bytes.
-Fits easily in any ROM bank.
+Move constants are in `constants/move_constants.asm`. PP values are the base PP for each move (e.g. Body Slam=15, Surf=15, Blizzard=5, Thunderbolt=15, Psychic=10, Recover=20, Thunder Wave=20, Earthquake=10, Rock Slide=10, Softboiled=10, Seismic Toss=20, Explosion=5, Amnesia=20, Hyper Beam=5, Sleep Powder=15, Stun Spore=30, Slash=20, Swords Dance=30, Agility=30, Reflect=20, Hypnosis=20, Dream Eater=15, Lovely Kiss=10, Substitute=10, Razor Leaf=25, Clamp=10, Wrap=20, Glare=30, Screech=40, Crabhammer=10, Drill Peck=20, Bubblebeam=20, Flamethrower=15, Fire Blast=5, Confuse Ray=10, Pin Missile=20, Submission=25, Super Fang=10, Night Shade=15, Minimize=20).
 
-#### Example Optimised Movesets (Gen 1 Level 50 competitive logic)
-
-| Pokemon | Move 1 | Move 2 | Move 3 | Move 4 |
-|---|---|---|---|---|
-| Charizard | FLAMETHROWER | SLASH | FIRE_SPIN | BODY_SLAM |
-| Blastoise | SURF | BLIZZARD | WITHDRAW | BODY_SLAM |
-| Venusaur | RAZOR_LEAF | SLEEP_POWDER | BODY_SLAM | LEECH_SEED |
-| Rhydon | EARTHQUAKE | ROCK_SLIDE | BODY_SLAM | SUBSTITUTE |
-| Gyarados | SURF | BLIZZARD | THUNDERBOLT | BODY_SLAM |
-| Dragonite | BLIZZARD | THUNDERBOLT | BODY_SLAM | WRAP |
-| Alakazam | PSYCHIC | RECOVER | THUNDER_WAVE | SEISMIC_TOSS |
-| Gengar | HYPNOSIS | DREAM_EATER | THUNDERBOLT | PSYCHIC |
-| Tauros | BODY_SLAM | HYPER_BEAM | BLIZZARD | EARTHQUAKE |
-| Starmie | SURF | BLIZZARD | THUNDERBOLT | RECOVER |
-| Exeggutor | PSYCHIC | SLEEP_POWDER | EXPLOSION | STUN_SPORE |
-| Snorlax | AMNESIA | BODY_SLAM | REFLECT | SELF_DESTRUCT |
-| Jolteon | THUNDERBOLT | DOUBLE_KICK | PIN_MISSILE | BODY_SLAM |
-| Vaporeon | SURF | BLIZZARD | ACID_ARMOR | BODY_SLAM |
-| Machamp | SUBMISSION | EARTHQUAKE | ROCK_SLIDE | BODY_SLAM |
-| Slowbro | AMNESIA | SURF | PSYCHIC | THUNDER_WAVE |
-| Lapras | SURF | BLIZZARD | THUNDERBOLT | BODY_SLAM |
-| Aerodactyl | HYPER_BEAM | SLASH | FIRE_BLAST | ROCK_SLIDE |
-| Golem | EARTHQUAKE | ROCK_SLIDE | EXPLOSION | BODY_SLAM |
-| Clefable | MINIMIZE | BODY_SLAM | THUNDER_WAVE | BLIZZARD |
-
-(Full table of 146 Pokemon to be completed during implementation)
-
-**Gen 1 notes that inform moveset choices:**
-- Blizzard has 90% accuracy in Gen 1 — goes on almost every mon that can learn it
-- Body Slam is the best Normal move (30% paralysis chance)
-- Critical hit rate scales with Speed stat — fast mons crit often
-- Wrap/Fire Spin pin opponents for full-duration damage each turn
-- Amnesia doubles Special in one turn — broken with Surf/Psychic
-- No Special split — one stat covers both attack and defence
+**Gen 1 competitive notes:**
+- Blizzard = 90% accuracy in Gen 1, goes on almost everything that can learn it
+- Body Slam = best Normal move (30% paralysis chance)
+- Amnesia doubles Special in one turn — broken with Surf/Psychic/Blizzard
+- Critical hit rate scales with Speed — fast mons crit constantly
+- No Special split — one stat covers both Sp.Atk and Sp.Def
 
 ---
 
