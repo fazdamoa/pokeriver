@@ -1,3 +1,8 @@
+_WelcomeText::
+	text "Welcome to the"
+	line "#MON LEAGUE!"
+	done
+
 _OaksLabRivalGrampsIsntAroundText::
 	text "<RIVAL>: Yo"
 	line "<PLAYER>! Gramps"
